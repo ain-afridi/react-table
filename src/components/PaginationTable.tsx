@@ -84,10 +84,9 @@ const PaginationTable = () => {
           />
         </span>
         <select value={pageSize} onChange={(e) => setPageSize(e.target.value)}>
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
+          {[10, 15, 50, 100].map((value) => (
+            <option value={value}>{value}</option>
+          ))}
         </select>
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {"<<"}
