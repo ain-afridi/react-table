@@ -75,6 +75,8 @@ const PaginationTable = () => {
             type="number"
             defaultValue={pageIndex + 1}
             style={{ width: "50px" }}
+            min={1}
+            max={pageOptions.length}
             onChange={(e: any) => {
               const NumberValue = e.target.value
                 ? Number(e.target.value) - 1
