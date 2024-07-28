@@ -2,21 +2,43 @@ import React, { useMemo } from "react";
 import { COLUMNS } from "./columns";
 import Mock_Data from "./data/MOCK_DATA.json";
 import { useTable } from "react-table";
+import Checkbox from "./Checkbox";
 
-const BasicTable = () => {
+const ColumnHide = () => {
   const columns: any = useMemo(() => COLUMNS, []);
-//   const columns: any = useMemo(() => GROUPED_COLUMNS, []);
+  //   const columns: any = useMemo(() => GROUPED_COLUMNS, []);
   const data = useMemo(() => Mock_Data, []);
 
-  const { getTableProps, getTableBodyProps, headerGroups, footerGroups, rows, prepareRow }: any =
-    useTable({
-      columns,
-      data,
-    });
-
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    footerGroups,
+    rows,
+    prepareRow,
+    allColumns,
+    getToggleHideAllColumnsProps,
+  }: any = useTable({
+    columns,
+    data,
+  });
 
   return (
-    <div>
+      <div>
+          <div>
+              <div>
+                  <Checkbox {...getToggleHideAllColumnsProps()} /> Toggle All
+              </div>
+
+              {allColumns.map((column: any) => (
+                  <div key={column.id}>
+                      <label>
+                          <input type="checkbox" {...column.getToggleHiddenProps()} />
+                          {column.Header}
+                      </label>
+                  </div>
+              ))}
+          </div>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup: any, index: number) => (
@@ -61,4 +83,4 @@ const BasicTable = () => {
   );
 };
 
-export default BasicTable;
+export default ColumnHide;

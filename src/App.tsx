@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import PaginationTable from './components/PaginationTable';
+import StickyTable from './components/StickyTable';
 
 function App() {
   return (
     <>
       {/* <BasicTable /> */}
       {/* <FilteringTable /> */}
-      <PaginationTable />
+      <StickyTable />
     </>
   );
 }

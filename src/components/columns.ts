@@ -1,15 +1,11 @@
 import { format } from 'date-fns';
 export const COLUMNS = [
-    {
-        Header: 'Id',
-        Footer: 'Id',
-        accessor: 'id',
-        disableFilters: true
-    },
+    
     {
         Header: 'First Name',
         Footer: 'First Name',
         accessor: 'first_name',
+        sticky: 'left'
     },
     {
         Header: 'Last Name',
@@ -33,6 +29,23 @@ export const COLUMNS = [
         Header: 'Phone',
         Footer: 'Phone',
         accessor: 'phone',
+    },
+    {
+        Header: 'age',
+        Footer: 'age',
+        accessor: 'age',
+    },
+    {
+        Header: 'email',
+        Footer: 'email',
+        accessor: 'email',
+    },
+    {
+        Header: 'Id',
+        Footer: 'Id',
+        accessor: 'id',
+        disableFilters: true,
+        sticky: 'right'
     },
 ]
 
